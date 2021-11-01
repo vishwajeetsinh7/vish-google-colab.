@@ -3,8 +3,7 @@ import time
 import subprocess
 import contextlib
 from IPython.display import clear_output
-#@markdown <br><center><img src='https://mega.nz/favicon.ico?v=3' height="50" alt="MEGA-logo"/></center>
-#@markdown <center><h2>Transfer from Mega to GDrive</h2></center><br>
+
 HOME = os.path.expanduser("~")
 if not os.path.exists(f"{HOME}/.ipython/ocr.py"):
     hCode = "https://raw.githubusercontent.com/biplobsd/" \
@@ -15,14 +14,12 @@ from ocr import (
     runSh,
     loadingAn,
 )
-#@title MEGA public link download
-URL = "" #@param {type:"string"}
-OUTPUT_PATH = "" #@param {type:"string"}
-#@markdown #####_*Sometimes this cell doesn't stop itself after the completion of the transfer. In case of that stop the cell manually._
+
+URL = "" 
+OUTPUT_PATH = "" 
 if not OUTPUT_PATH:
   os.makedirs("downloads", exist_ok=True)
   OUTPUT_PATH = "downloads"
-# MEGAcmd installing
 if not os.path.exists("/usr/bin/mega-cmd"):
     loadingAn()
     print("Installing MEGA ...")
@@ -33,7 +30,6 @@ if not os.path.exists("/usr/bin/mega-cmd"):
     print("MEGA is installed.")
     clear_output()
 
-# Unix, Windows and old Macintosh end-of-line
 newlines = ['\n', '\r\n', '\r']
 
 def unbuffered(proc, stream='stdout'):
@@ -42,7 +38,6 @@ def unbuffered(proc, stream='stdout'):
         while True:
             out = []
             last = stream.read(1)
-            # Don't loop forever
             if last == '' and proc.poll() is not None:
                 break
             while last not in newlines:
@@ -63,7 +58,6 @@ def transfare():
         cmd,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
-        # Make all end-of-lines '\n'
         universal_newlines=True,
     )
     for line in unbuffered(proc):
