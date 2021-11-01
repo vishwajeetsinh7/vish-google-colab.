@@ -1,0 +1,1 @@
+!unzip "/content/drive/path/input_file_name.zip" -d "/content/drive/path/output_folder/"

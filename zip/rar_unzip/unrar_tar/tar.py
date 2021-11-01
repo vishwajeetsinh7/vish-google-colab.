@@ -1,0 +1,1 @@
+!tar -cvf "/content/drive/path/output_file_name.tar" "/content/drive/path/input_file_or_folder"     #[run this cell to create tar files]
