@@ -11,11 +11,16 @@ state_str = [
     "seeding",
     "allocating",
     "checking fastresume",
+
+
 ]
 
 layout = widgets.Layout(width="auto")
+
+
+
 style = {"description_width": "initial"}
-download_bars = [
+download_bars = [   
     widgets.FloatSlider(
         step=0.01, disabled=True, layout=layout, style=style
     )
